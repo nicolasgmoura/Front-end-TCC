@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Comentários Recebidos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let comentario of comentarios">
+    <img src="http://localhost:55409/Imagens/{{comentario.publicacao.imagemPublicacao}}" />
+
+    <ion-item>
+      <ion-icon name="contact" item-start large></ion-icon>
+      <h2>Nome usuário</h2>
+      {{comentario.usuario.nomeUsuario}}
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="create" item-start large></ion-icon>
+      <h2>Título comentário</h2>
+      {{comentario.publicacao.titulo}}
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="paper" item-start large></ion-icon>
+      <h2>Descrição da publicação</h2>
+      {{comentario.descricao}}
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="calendar" item-start large></ion-icon>
+      <h2>Data do comentário</h2>
+      <p>{{comentario.dataComentario}}</p>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>E-Marketing</ion-title>
+  </ion-toolbar>
+</ion-footer>

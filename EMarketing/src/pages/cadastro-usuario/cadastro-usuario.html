@@ -1,0 +1,128 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Cadastro de Usuário</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+ 
+  <form (ngSubmit)="cadastrar()">
+      <ion-item>
+          <ion-label>É Empresa</ion-label>
+          <ion-toggle [(ngModel)]="usuario.isEmpresa" [ngModelOptions]="{standalone: true}"></ion-toggle>
+        </ion-item>
+
+    <ion-item>
+      <ion-label>Usuário</ion-label>
+      <ion-input required="true" type="text" [(ngModel)]="usuario.nomeUsuario" name="nomeUsuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Senha</ion-label>
+      <ion-input required="true" type="password"[(ngModel)]="usuario.senha" name="senha"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>E-mail</ion-label>
+        <ion-input required="true" type="text" [(ngModel)]="usuario.email" name="email"></ion-input>
+    </ion-item>
+
+      
+    <ion-item *ngIf="!usuario.isEmpresa" >
+        <ion-label>Nome</ion-label>
+        <ion-input  type="text" [(ngModel)]="usuario.consumidor.nome" name="nome"></ion-input>
+      </ion-item>
+
+      
+      <ion-item> 
+        <ion-label>Data de Nascimento</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="usuario.consumidor.dataNascimento" [ngModelOptions]="{standalone: true}"></ion-datetime>
+      </ion-item>
+
+
+      
+      <ion-item *ngIf="usuario.isEmpresa" >
+        <ion-label>Segmento </ion-label>
+        <ion-select (ionChange)="segmento($event);" [(ngModel)]="usuario.empresa.segmento" [ngModelOptions]="{standalone: true}">
+          <ion-option *ngFor="let segmento of segmentos" [value] = "segmento" [checked]="false">{{segmento.descricao}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Cidade</ion-label>
+        <ion-select  (ionChange)="estado($event);" [(ngModel)]="usuario.cidade" [ngModelOptions]="{standalone: true}">
+          <ion-option *ngFor="let cidade of cidades" [value] = "cidade" [checked]="false">{{cidade.descricao}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Estado</ion-label>
+        <ion-label disabled> {{sigla}}</ion-label>
+      </ion-item>
+
+      <ion-item *ngIf="usuario.isEmpresa" >
+          <ion-label>CNPJ</ion-label>
+          <ion-input required="true" type="text" [(ngModel)]="usuario.empresa.cnpj" name="cnpj"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="usuario.isEmpresa" >
+
+            <ion-label>Razão Social</ion-label>
+            <ion-input required="true" type="text" [(ngModel)]="usuario.empresa.razaoSocial" name="razaoSocial"></ion-input>
+          </ion-item>
+
+          <ion-item *ngIf="usuario.isEmpresa">
+              <ion-label>Fantasia</ion-label>
+              <ion-input required="true" type="text" [(ngModel)]="usuario.empresa.fantasia" name="fantasia"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="usuario.isEmpresa">
+              <ion-label>Endereco</ion-label>
+              <ion-input required="true" type="text" [(ngModel)]="usuario.empresa.endereco" name="endereco"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="usuario.isEmpresa">
+              <ion-label>Número</ion-label>
+              <ion-input required="true" type="text" [(ngModel)]="usuario.empresa.numero" name="numero"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="usuario.isEmpresa">
+              <ion-label>Bairro</ion-label>
+              <ion-input required="true" type="text" [(ngModel)]="usuario.empresa.bairro" name="bairro"></ion-input>
+            </ion-item>
+
+            
+            <ion-item *ngIf="usuario.isEmpresa">
+              <ion-label>CEP</ion-label>
+              <ion-input required="true" type="text" [(ngModel)]="usuario.empresa.cep" name="cep"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="usuario.isEmpresa">
+                <ion-label>Telefone</ion-label>
+                <ion-input required="true" type="text" [(ngModel)]="usuario.empresa.telefone" name="telefone"></ion-input>
+              </ion-item>
+  
+
+            <ion-item *ngIf="usuario.isEmpresa">
+              <ion-label>Logo</ion-label>
+              <ion-input (change)="onFileChange($event)" type="file" name="logo"></ion-input>
+            </ion-item>
+
+
+    <button ion-button type="submit" block>Cadastrar</button>
+  </form>
+
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar color="primary">
+      <ion-title>E-Marketing</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+

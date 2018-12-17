@@ -1,0 +1,50 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Denúncias</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-card *ngFor="let denuncia of denuncias" (click)="excluirPublicacao(denuncia.publicacao.idPublicacao)" >
+
+        <ion-fab right top>
+            <button ion-fab>
+              <ion-icon name="megaphone"></ion-icon>
+            </button>
+          </ion-fab>  
+
+        <img src="http://localhost:55409/Imagens/{{denuncia.publicacao.imagemPublicacao}}"/>
+        <ion-item>
+          <ion-icon name="mail-open" item-start large></ion-icon>
+          <h2>Descrição da denúncia</h2>
+          <p>{{denuncia.mensagem}}</p>
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name="quote" item-start large></ion-icon>
+          <h2>Descrição da publicação</h2>
+          <p>{{denuncia.publicacao.areaPublicacao}}</p>
+          </ion-item>
+      
+        <ion-item>
+
+          <ion-icon name="calendar" item-start large ></ion-icon>
+          <h2>Data da denúncia</h2>
+          <p>{{denuncia.dataDenuncia}}</p>
+        </ion-item>
+      
+      </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title> {{quantidadeDenuncias}} denúncias realizadas </ion-title>
+  </ion-toolbar>
+</ion-footer>
+

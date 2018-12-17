@@ -1,0 +1,331 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Empresas Destaque</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-searchbar id="filtro" name="filtro" [placeholder]="placeholder" #filtro ></ion-searchbar>
+ 
+  <ion-list *ngFor="let empresa of empresas | filtrarEmpresa : filtro.value ">
+    <ion-card>
+      <ion-item>
+        <ion-row>
+          <ion-col col-4>
+            <ion-thumbnail item-start>
+              <img src="http://localhost:55409/Imagens/{{empresa.logo}}">
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col>
+            <h1>{{empresa.fantasia}}</h1>
+            <p>{{empresa.telefone}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-card-content>
+        <ion-card-title>
+          <h2>Avaliação Média: {{empresa.mediaAvaliacao}}</h2>
+        </ion-card-title>
+        <p>Avaliar esta empresa</p>
+        <ion-row>
+
+          <ion-col>
+            <div *ngIf="numeroAvaliador == 0 ">
+
+              <button ion-button outline small (click)="Avaliar(1,empresa.idEmpresa)">
+                <ion-icon name="star-outline">
+                </ion-icon>
+              </button>
+              <button ion-button outline small (click)="Avaliar(2,empresa.idEmpresa)">
+                <ion-icon name="star-outline">
+                </ion-icon>
+              </button>
+              <button ion-button outline small (click)="Avaliar(3,empresa.idEmpresa)">
+                <ion-icon name="star-outline">
+                </ion-icon>
+              </button>
+              <button ion-button outline small (click)="Avaliar(4,empresa.idEmpresa)">
+                <ion-icon name="star-outline">
+                </ion-icon>
+              </button>
+              <button ion-button outline small (click)="Avaliar(5,empresa.idEmpresa)">
+                <ion-icon name="star-outline">
+                </ion-icon>
+              </button>
+            </div>
+
+            <div *ngIf="numeroAvaliador != 0 ">
+
+              <div *ngIf="numeroAvaliador == 1">
+                <ng-container *ngIf=" idEmpresaSelecionada != empresa.idEmpresa; else template1 ">
+                  <button ion-button outline small (click)="Avaliar(1,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(2,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(3,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(4,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(5,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                </ng-container>
+                <ng-template #template1>
+
+                  <button ion-button small>
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(2,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(3,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(4,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(5,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                </ng-template>
+              </div>
+
+              <div *ngIf="numeroAvaliador == 2">
+                <ng-container *ngIf="idEmpresaSelecionada != empresa.idEmpresa; else template2 ">
+                  <button ion-button outline small (click)="Avaliar(1,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(2,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(3,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(4,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(5,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                </ng-container>
+                <ng-template #template2>
+
+                  <button ion-button small (click)="Avaliar(1,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button small>
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(3,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(4,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(5,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                </ng-template>
+              </div>
+
+              <div *ngIf="numeroAvaliador == 3">
+
+                <ng-container *ngIf=" idEmpresaSelecionada != empresa.idEmpresa; else template3 ">
+                  <button ion-button outline small (click)="Avaliar(1,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(2,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(3,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(4,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(5,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                </ng-container>
+                <ng-template #template3>
+
+                  <button ion-button small (click)="Avaliar(1,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button small (click)="Avaliar(2,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button small>
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(4,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(5,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                </ng-template>
+
+              </div>
+
+              <div *ngIf="numeroAvaliador == 4">
+                <ng-container *ngIf="idEmpresaSelecionada != empresa.idEmpresa; else template4 ">
+                  <button ion-button outline small (click)="Avaliar(1,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(2,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(3,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(4,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(5,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                </ng-container>
+                <ng-template #template4>
+
+                  <button ion-button small (click)="Avaliar(1,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button small (click)="Avaliar(2,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button small (click)="Avaliar(3,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button small>
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(5,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                </ng-template>
+              </div>
+
+              <div *ngIf="numeroAvaliador == 5">
+                <ng-container *ngIf=" idEmpresaSelecionada != empresa.idEmpresa; else template5 ">
+                  <button ion-button outline small (click)="Avaliar(1,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(2,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(3,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(4,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button outline small (click)="Avaliar(5,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                </ng-container>
+                <ng-template #template5>
+
+                  <button ion-button small (click)="Avaliar(1,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button small (click)="Avaliar(2,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button small (click)="Avaliar(3,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button small (click)="Avaliar(4,empresa.idEmpresa)">
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                  <button ion-button small>
+                    <ion-icon name="star-outline">
+                    </ion-icon>
+                  </button>
+                </ng-template>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-item>
+          <button ion-button icon-right clear item-start (click)="acompanhar(empresa.idEmpresa)">
+            Acompanhar
+            <ion-icon name="walk"></ion-icon>
+
+          </button>
+          <button ion-button icon-right clear item-end (click)="EnviarAvaliacao()">
+            Enviar
+            <ion-icon name="send"></ion-icon>
+          </button>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>E-Marketing</ion-title>
+  </ion-toolbar>
+</ion-footer>

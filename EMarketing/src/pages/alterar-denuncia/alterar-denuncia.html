@@ -1,0 +1,33 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Alterar Denúncia</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-buttons end>
+        <button ion-button icon-only (click)="excluirDenuncia()" >
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-buttons>
+
+      <ion-item>
+          <ion-label floating>Mensagem</ion-label>
+          <ion-input type="text" [(ngModel)]="denuncia.mensagem"></ion-input>
+      </ion-item>
+
+      <button ion-button (click)="alterarDenuncia()" block> Salvar Alterações </button>
+
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar color="primary">
+      <ion-title>E-Marketing</ion-title>
+    </ion-toolbar>
+  </ion-footer>

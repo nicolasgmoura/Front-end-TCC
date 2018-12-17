@@ -1,0 +1,35 @@
+<ion-content scroll="false">
+  
+    <div class="splash-bg"></div>
+    <div class="splash-info">
+      <div class="splash-logo"></div>
+      <div class="splash-intro">
+        E-Marketing
+      </div>
+    </div>
+    <div padding>
+      
+      
+      <form (ngSubmit)="efetuaLogin()">
+          <ion-item>
+              <ion-label stacked>Usuário</ion-label>
+              <ion-input #login [(ngModel)]="_usuarioInformado.NomeUsuario" name="NomeUsuario" type="text">Senha</ion-input>
+            </ion-item>
+        
+            <ion-item>
+                <ion-label stacked>Senha</ion-label>
+                <ion-input [(ngModel)]="_usuarioInformado.Senha" name="Senha" type="password">Senha</ion-input>
+              </ion-item>
+        
+        <button ion-button block type="submit" class="login">ENTRAR</button>
+      </form>
+      
+    </div>
+        <ion-toolbar color="black-light">
+          <button ion-button color="blue" full clear (click)="irCadastro()">Cadastre-se</button>
+        </ion-toolbar>
+
+        <ion-toolbar color="black-light">
+            <button ion-button color="blue" full clear (click)="recuperarSenha()">Recuperar Senha</button>
+          </ion-toolbar>
+  </ion-content>

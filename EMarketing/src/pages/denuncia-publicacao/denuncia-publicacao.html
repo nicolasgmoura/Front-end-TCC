@@ -1,0 +1,25 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Denunciar Publicação</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+      <ion-item>
+          <ion-label floating>Informe sua denúncia...</ion-label>
+          <ion-textarea class="fonte" type="text"  [(ngModel)]="denuncia.mensagem" name="mensagem"></ion-textarea>
+      </ion-item>
+
+      <button ion-button (click)="denunciar()" block> Realizar Denúncia </button>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>Denúncia</ion-title>
+  </ion-toolbar>
+</ion-footer>

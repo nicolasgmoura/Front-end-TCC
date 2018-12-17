@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Alterando Publicacao</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+  
+<ion-content padding>
+
+  <ion-buttons end>
+    <button ion-button icon-only (click)="excluirPublicacao()" >
+      <ion-icon name="trash"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-item>
+    <ion-label stacked>Imagem da Publicacão</ion-label>
+    <ion-input (change)="onFileChange($event)" type="file" name="logo"></ion-input>
+  </ion-item>
+    
+
+  <ion-item>
+    <ion-label floating>Titulo</ion-label>
+    <ion-input type="text" [(ngModel)]="publicacao.titulo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating >Área de Publicação</ion-label>
+    <ion-textarea type="text" [(ngModel)]="publicacao.areaPublicacao"></ion-textarea>
+  </ion-item>
+  
+
+  <button ion-button (click)="alterarPublicacao()" block> Salvar Alterações </button>
+
+
+</ion-content>

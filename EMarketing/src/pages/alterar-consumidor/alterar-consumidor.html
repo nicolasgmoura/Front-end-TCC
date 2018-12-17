@@ -1,0 +1,55 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Alterando Consumidor</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label >Usuário </ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.nomeUsuario"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label >Senha</ion-label>
+    <ion-input type="password" [(ngModel)]="usuario.senha"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>E-mail</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.consumidor.nome"></ion-input>
+  </ion-item>
+
+  <ion-item (click)="selecionaData()"> 
+    <ion-label>Data Nascimento</ion-label>
+    <ion-datetime disabled = "true" displayFormat="MM/DD/YYYY" [(ngModel)]="usuario.consumidor.dataNascimento" [ngModelOptions]="{standalone: true}"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Cidade</ion-label>
+    <ion-select  (ionChange)="estado($event);" [(ngModel)]="usuario.cidade.descricao" [ngModelOptions]="{standalone: true}">
+      <ion-option *ngFor="let cidade of cidades" [value] = "cidade.descricao" [checked]="false">{{cidade.descricao}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>Estado</ion-label>
+    <ion-label disabled>{{usuario.cidade.estado.sigla}}</ion-label>
+  </ion-item>
+
+
+  <button ion-button (click)="alterarConsumidor()" block> Salvar Alterações </button>
+
+
+</ion-content>

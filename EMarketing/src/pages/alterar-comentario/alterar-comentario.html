@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Alterar Comentário</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-buttons end>
+        <button ion-button icon-only (click)="excluirComentario()" >
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-buttons>
+
+      <ion-item>
+          <ion-label floating>Descricao</ion-label>
+          <ion-textarea type="text" [(ngModel)]="comentario.descricao"></ion-textarea>
+      </ion-item>
+
+      <button ion-button (click)="alterarComentario()" block> Salvar Alterações </button>
+
+</ion-content>

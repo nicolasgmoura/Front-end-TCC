@@ -1,0 +1,62 @@
+
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>{{empresa.fantasia}} </ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content>
+    <ion-item no-Lines>
+        <div class="avatar-wrapper">
+            <ion-avatar>
+              <img src="http://localhost:55409/Imagens/{{empresa.logo}}"/>
+            </ion-avatar>
+        </div>
+    </ion-item>
+    <ion-card>
+      <ion-item>
+        <ion-icon name="contact" item-left></ion-icon>
+        {{empresa.fantasia}}
+      </ion-item>
+      <ion-item>
+          <ion-icon name="pricetag" item-left></ion-icon>
+          <p>{{empresa.razaoSocial}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="compass" item-left></ion-icon>
+          <p>{{empresa.endereco}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="home" item-left></ion-icon>
+          <p>{{empresa.numero}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pin" item-left></ion-icon>
+          <p>{{empresa.bairro}}</p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="globe" item-left></ion-icon>
+          <p>{{empresa.cep}}</p>
+        </ion-item>
+  
+        <ion-item>
+            <ion-icon name="call" item-left></ion-icon>
+            <p>{{empresa.telefone}}</p>
+          </ion-item>
+  
+        <ion-item>
+            <ion-icon name="mail" item-left></ion-icon>
+            <p>{{empresa.usuario.email}}</p>
+          </ion-item>
+    </ion-card>
+  
+    
+  </ion-content>
+  
+  <ion-footer>
+      <ion-toolbar color="primary">
+        <ion-title>{{empresa.segmento.descricao}}</ion-title>
+      </ion-toolbar>
+  </ion-footer>
+  

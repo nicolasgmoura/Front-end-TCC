@@ -1,0 +1,101 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Alterando Empresa</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label >Nome Usuario </ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.nomeUsuario"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label >Senha</ion-label>
+    <ion-input type="password" [(ngModel)]="usuario.senha"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Segmento </ion-label>
+      <ion-select (ionChange)="segmento($event);" [(ngModel)]="descricaoSegmento" [ngModelOptions]="{standalone: true}">
+        <ion-option *ngFor="let segmento of segmentos" [value] = "segmento.descricao" [checked]="false">{{segmento.descricao}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>CNPJ</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.empresa.cnpj"></ion-input>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>Razão Social</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.empresa.razaoSocial"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>Fantasia</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.empresa.fantasia"></ion-input>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>Endereco</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.empresa.endereco"></ion-input>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>Número</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.empresa.numero"></ion-input>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>Bairro</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.empresa.bairro"></ion-input>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>CEP</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.empresa.cep"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>Telefone</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.empresa.telefone"></ion-input>
+    </ion-item>
+  
+
+  <ion-item>
+    <ion-label>Cidade</ion-label>
+    <ion-select  (ionChange)="estado($event);" [(ngModel)]="usuario.cidade.descricao" [ngModelOptions]="{standalone: true}">
+      <ion-option *ngFor="let cidade of cidades" [value] = "cidade.descricao" [checked]="false">{{cidade.descricao}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>Estado</ion-label>
+    <ion-label disabled>{{usuario.cidade.estado.sigla}}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Logo</ion-label>
+    <ion-input (change)="onFileChange($event)" type="file" name="logo"></ion-input>
+  </ion-item>
+
+  <button ion-button (click)="alterarEmpresa()" block> Salvar Alterações </button>
+
+
+</ion-content>

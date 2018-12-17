@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Meus Seguidores</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+
+  <ion-card *ngFor="let consumidor of consumidores">
+    <ion-item>
+      <ion-thumbnail>
+        <img src="assets/imgs/avatar-padrao.jpg">
+      </ion-thumbnail>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="person" item-start large></ion-icon>
+      <p>{{consumidor.nome}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="compass" item-start large></ion-icon>
+      <p>{{consumidor.usuario.cidade.descricao}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="at" item-start large></ion-icon>
+      <p>{{consumidor.usuario.email}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="calendar" item-start large></ion-icon>
+      <h2>Data Nascimento</h2>
+      <p>{{usuario.dataNascimento}}</p>
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>E-Marketing</ion-title>
+  </ion-toolbar>
+</ion-footer>

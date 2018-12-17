@@ -1,0 +1,28 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+      <ion-title>Consumidores</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  <ion-content padding>
+  
+    <ion-list>
+      <ion-item *ngFor="let consumidor of consumidores">
+        <ion-thumbnail item-start>
+            <img src="assets/imgs/avatar-padrao.jpg">
+        </ion-thumbnail>
+        <h2>{{consumidor.nome}}</h2>
+        <p> {{consumidor.dataNascimento}}</p>
+        <p>{{consumidor.usuario.cidade.descricao}}</p>
+        <p>{{consumidor.usuario.email}}</p>
+      </ion-item>
+    </ion-list>
+  
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar color="dark">
+      <ion-title>{{quantidadeConsumidores}} Consumidores cadastrados</ion-title>
+    </ion-toolbar>
+  </ion-footer>

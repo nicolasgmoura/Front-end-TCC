@@ -1,0 +1,75 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Meus Dados</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-item no-Lines>
+
+    <div class="avatar-wrapper">
+      <ion-avatar>
+        <img src="http://localhost:55409/Imagens/{{usuarioLogado.empresa.logo}}"/>
+      </ion-avatar>
+      <button (click)="irPaginaAlterar()" class="btn-alterar-empresa" ion-button icon-only round >
+        <ion-icon name="create"></ion-icon>
+      </button>
+  </div>
+  </ion-item>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="contact" item-left></ion-icon>
+      {{usuarioLogado.empresa.fantasia}}
+    </ion-item>
+    <ion-item>
+        <ion-icon name="pricetag" item-left></ion-icon>
+        <p>{{usuarioLogado.empresa.razaoSocial}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="compass" item-left></ion-icon>
+        <p>{{usuarioLogado.empresa.endereco}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="home" item-left></ion-icon>
+        <p>{{usuarioLogado.empresa.numero}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="pin" item-left></ion-icon>
+        <p>{{usuarioLogado.empresa.bairro}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="globe" item-left></ion-icon>
+        <p>{{usuarioLogado.empresa.cep}}</p>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="call" item-left></ion-icon>
+          <p>{{usuarioLogado.empresa.telefone}}</p>
+        </ion-item>
+
+      <ion-item>
+          <ion-icon name="mail" item-left></ion-icon>
+          <p>{{usuarioLogado.email}}</p>
+        </ion-item>
+
+        <ion-item >
+            <button ion-button full (click)="desativarConta()">Desativar conta</button>
+        </ion-item>
+       
+  </ion-card>
+
+  
+  
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-title>E-Marketing</ion-title>
+    </ion-toolbar>
+  </ion-footer>

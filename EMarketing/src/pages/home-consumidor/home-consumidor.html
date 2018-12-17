@@ -1,0 +1,80 @@
+
+
+<ion-header>
+
+  <ion-navbar  color="primary">
+    <button button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Publicacões</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+<ion-card  *ngFor="let publicacao of publicacoes" padding >
+
+  <ion-item padding >
+    <ion-avatar item-start>
+      <img src="http://localhost:55409/Imagens/{{publicacao.usuario.empresa.logo}}"/>
+    </ion-avatar>
+
+    <h2>{{publicacao.usuario.empresa.fantasia}}</h2>
+    <p>{{publicacao.dataPublicacao | date:'dd-MM-yyyy'}}</p>
+  </ion-item>
+
+  <h2><b>{{publicacao.titulo}}</b></h2>
+  <br/>
+  <img src="http://localhost:55409/Imagens/{{publicacao.imagemPublicacao}}"/>
+
+  <ion-card-content >
+    <b><p>{{publicacao.areaPublicacao}}</p></b>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>{{publicacao.quantidadeComentarios}}</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note >
+        {{publicacao.dataPublicacao}}
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
+<ion-card-content>
+          <ion-input class="fonte" type="text" placeholder="Comente aqui..." [(ngModel)]="comentario.descricao" name="descricao"></ion-input>
+          
+
+          <ion-item>
+              <ion-button>
+                  <button ion-button icon-right clear (click)="comentar(publicacao)">
+                     <ion-icon name="send"> Enviar </ion-icon>
+                  </button>
+              </ion-button> 
+
+              <button ion-button icon-right clear item-end (click)="denunciar(publicacao.idPublicacao)">
+                  Denunciar 
+                  <ion-icon name="megaphone"></ion-icon>
+                </button>
+          </ion-item>
+
+    </ion-card-content>
+</ion-card>
+
+
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar color="primary">
+      <ion-title>E-Marketing</ion-title>
+    </ion-toolbar>
+</ion-footer>
+
+
+

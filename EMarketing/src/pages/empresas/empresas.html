@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Empresas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let empresa of empresas">
+      <ion-thumbnail item-start>
+        <img src="http://localhost:55409/Imagens/{{empresa.logo}}" />
+      </ion-thumbnail>
+      <h2>{{empresa.fantasia}}</h2>
+      <p> {{empresa.endereco}}, {{empresa.numero}} - {{empresa.bairro}}.</p>
+      <p>{{empresa.telefone}}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-title>{{quantidadeEmpresas}} Empresas cadastradas</ion-title>
+  </ion-toolbar>
+</ion-footer>

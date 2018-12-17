@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Meus Dados</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-item no-Lines>
+
+    <div class="avatar-wrapper">
+      <ion-avatar>
+        <img src="assets/imgs/avatar-padrao.jpg">
+      </ion-avatar>
+      <button (click)="irPaginaAlterar()" class="btn-alterar-consumidor" ion-button icon-only round >
+        <ion-icon name="create"></ion-icon>
+      </button>
+  </div>
+  </ion-item>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="contact" item-left></ion-icon>
+      {{usuarioLogado.nomeUsuario}}
+    </ion-item>
+    <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        <p>{{usuarioLogado.consumidor.dataNascimento}}</p>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon name="at" item-left></ion-icon>
+          <p>{{usuarioLogado.email}}</p>
+        </ion-item>
+        <ion-item>
+          <button ion-button full (click)="desativarConta()">Desativar conta</button>
+      </ion-item>
+      
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-title>E-Marketing</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+
